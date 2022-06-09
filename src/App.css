@@ -3,25 +3,14 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+      animation: App-logo-spin infinite 1s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -30,9 +19,65 @@
 
 @keyframes App-logo-spin {
   from {
-    transform: rotate(0deg);
+      transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+      transform: rotate(360deg);
   }
+}
+
+.default {
+  border: 1px solid cornflowerblue;
+  padding: 16px;
+  transition: 0.2s;
+  height: 50px;
+}
+
+.clicked {
+  border: 2px solid cornflowerblue;
+  background-color: cornflowerblue;
+  transform: scale(1.1);
+  border-radius: 5px;
+}
+
+.default:hover {
+  background-color: lightgrey;
+  transform: scale(1.05);
+  border-radius: 5px;
+}
+
+.moves {
+  cursor: pointer;
+  padding: 50px;
+  border: 2px solid lightgrey;
+  text-shadow: #61dafb;
+  background-color: white;
+  transition: 0.2s;
+  border-radius: 10px;
+  margin: 2px;
+}
+
+.moves:hover {
+  background-color: cornflowerblue;
+  color: white;
+  transform: scale(1.1);
+}
+
+.boxText {
+  font-size: large;
+  font-weight: bold;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.matrixTxt {
+  font-size: large;
+}
+
+.matrixRow:nth-child(3n) {
+  border-right: 2px solid black;
+  /* border-bottom: 3px solid black; */
+}
+
+.matrixCol {
+  border-top: 2px solid black;
 }

@@ -165,6 +165,15 @@ const Sudoku = (function () {
         }
 
 
+        // replace 0 with null
+
+        for(let i=0; i<9; i++){
+            for(let j=0; j<9; j++){
+                if(unSolvedBoard[i][j]===0){
+                    unSolvedBoard[i][j]=null
+                }
+            }
+        }
     }
 
 })();

@@ -73,6 +73,24 @@ const Sudoku = (function () {
         }
     }
 
+    
+    function fillDiagonal(board){
+        for (let i=0; i<9; i+=3){
+            fillBox(i,i,board)
+        }
+    }
+
+    // check ====
+    function isNumberInRow(board, number, row){
+        for(let i=0; i<GRIDSIZE; i++){
+            if(board[row][i]===number){
+                return true
+            }
+        }
+        return false
+    }
+
+
 
 })();
 

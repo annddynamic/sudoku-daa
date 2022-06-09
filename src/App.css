@@ -81,3 +81,9 @@
 .matrixCol {
   border-top: 2px solid black;
 }
+
+.box-used{
+  background-color: cornflowerblue;
+  color: white;
+  transform: scale(1.1); 
+}

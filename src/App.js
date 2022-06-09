@@ -2,8 +2,33 @@ import logo from "./logo.svg";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Alert, Dropdown } from "react-bootstrap";
+import Sudoku from "./sudoku";
 
 function App() {
+
+   /*
+  
+    ******  DIFFICULTY  ******
+
+    Beginner: Find 30 numbers
+    Rookie: Find 45 numbers
+    Medium: Find 50 numbers
+    Hard: Find 58 numbers
+    Legendary: Find 65 numbers
+  
+  */
+
+    useEffect(() => {
+      // Start new Game with beginner difficulty
+      Sudoku.newGame(30);
+      setBoard(Sudoku.getSolvedBoard());
+      setMatrix(Sudoku.getUnsolvedBoard());
+      setCurrentDifficulty(30);
+      setToFind(30);
+      setLives(5);
+      setShow(false);
+    }, []);
+  
   return (
     <div className="App">
       <header className="App-header">

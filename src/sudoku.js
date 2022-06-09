@@ -90,7 +90,29 @@ const Sudoku = (function () {
         return false
     }
 
+    function isNumberInColumn(board, number, column){
+        for(let i=0; i<GRIDSIZE; i++){
+            if(board[i][column]===number){
+                return true
+            }
+        }
+        return false
+    }
 
+    function isNumberInBox(board, number, row, column){
+        let localBoxRow = row-row%3
+        let localBoxColumn = column-column%3
+
+        for(let i=localBoxRow; i<localBoxRow+3; i++){
+            for(let j=localBoxColumn; j<localBoxColumn+3; j++){
+                if(board[i][j]===number){
+                    return true
+                }
+            }
+        }
+
+        return false
+    }
 
 })();
 

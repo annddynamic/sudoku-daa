@@ -40,6 +40,21 @@ function App() {
     const [guess, setGuess] = useState("danger");
     const [currentDifficulty, setCurrentDifficulty] = useState();
   
+    
+  function appendToMatrix(row, column, number) {
+    let newState = [];
+    for (let i = 0; i < matrix.length; i++) {
+      if (i === row) {
+        for (let j = 0; j < matrix.length; j++) {
+          if (j === column) {
+            matrix[i][j] = number;
+          }
+        }
+      }
+      newState.push(matrix[i]);
+    }
+    setMatrix(newState);
+  }
   
   return (
     <div className="App">

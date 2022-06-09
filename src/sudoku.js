@@ -142,6 +142,31 @@ const Sudoku = (function () {
         return true;
     }
 
+    function removeKDigits(k, board)
+    {
+        let count = k;
+        while (count != 0)
+        {
+            let cellId = randomNumberGenerator(GRIDSIZE*GRIDSIZE)-1;
+ 
+            // System.out.println(cellId);
+            // extract coordinates i  and j
+            let i = Math.floor(cellId/GRIDSIZE);
+            let j = cellId%9+1;
+            if (j != 0)
+                j = j - 1;
+ 
+            // System.out.println(i+" "+j);
+            if (board[i][j] != 0)
+            {
+                count--;
+                board[i][j] = 0;
+            }
+        }
+
+
+    }
+
 })();
 
 export default Sudoku;

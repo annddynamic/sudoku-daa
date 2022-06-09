@@ -176,6 +176,13 @@ const Sudoku = (function () {
         }
     }
 
+    
+    return {
+        newGame,
+        getSolvedBoard,
+        getUnsolvedBoard
+     };
+
 })();
 
 export default Sudoku;

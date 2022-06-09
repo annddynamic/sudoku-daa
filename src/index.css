@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.box-filtered{
+  cursor: pointer;
+  padding: 50px;
+  border: 2px solid lightgrey;
+  text-shadow: #61dafb;
+  background-color: white
+}
+
+.aligned-items{
+  display: flex;
+  transform: matrix();
+  flex-direction: column;
+}

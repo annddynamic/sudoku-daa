@@ -95,11 +95,20 @@ function App() {
       }
     }
   }
-  
+
   function notify(message, guess) {
     setShow(true);
     setMessage(message);
     setGuess(guess);
+  }
+
+  function newGame(currentDifficulty) {
+    Sudoku.newGame(currentDifficulty);
+    setToFind(currentDifficulty);
+    setBoard(Sudoku.getSolvedBoard());
+    setMatrix(Sudoku.getUnsolvedBoard());
+    setLives(5);
+    setShow(false);
   }
   
   return (

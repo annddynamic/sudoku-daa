@@ -95,7 +95,12 @@ function App() {
       }
     }
   }
-
+  
+  function notify(message, guess) {
+    setShow(true);
+    setMessage(message);
+    setGuess(guess);
+  }
   
   return (
     <div className="App">

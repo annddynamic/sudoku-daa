@@ -5,8 +5,7 @@ import { Container, Row, Col, Button, Alert, Dropdown } from "react-bootstrap";
 import Sudoku from "./sudoku";
 
 function App() {
-
-   /*
+  /*
   
     ******  DIFFICULTY  ******
 
@@ -18,29 +17,28 @@ function App() {
   
   */
 
-    useEffect(() => {
-      // Start new Game with beginner difficulty
-      Sudoku.newGame(30);
-      setBoard(Sudoku.getSolvedBoard());
-      setMatrix(Sudoku.getUnsolvedBoard());
-      setCurrentDifficulty(30);
-      setToFind(30);
-      setLives(5);
-      setShow(false);
-    }, []);
+  useEffect(() => {
+    // Start new Game with beginner difficulty
+    Sudoku.newGame(30);
+    setBoard(Sudoku.getSolvedBoard());
+    setMatrix(Sudoku.getUnsolvedBoard());
+    setCurrentDifficulty(30);
+    setToFind(30);
+    setLives(5);
+    setShow(false);
+  }, []);
 
-    const [matrix, setMatrix] = useState([]);
-    const [board, setBoard] = useState([]);
-    const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    const [cords, setCords] = useState([]);
-    const [toFind, setToFind] = useState();
-    const [lives, setLives] = useState();
-    const [show, setShow] = useState(false);
-    const [message, setMessage] = useState("");
-    const [guess, setGuess] = useState("danger");
-    const [currentDifficulty, setCurrentDifficulty] = useState();
-  
-    
+  const [matrix, setMatrix] = useState([]);
+  const [board, setBoard] = useState([]);
+  const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  const [cords, setCords] = useState([]);
+  const [toFind, setToFind] = useState();
+  const [lives, setLives] = useState();
+  const [show, setShow] = useState(false);
+  const [message, setMessage] = useState("");
+  const [guess, setGuess] = useState("danger");
+  const [currentDifficulty, setCurrentDifficulty] = useState();
+
   function appendToMatrix(row, column, number) {
     let newState = [];
     for (let i = 0; i < matrix.length; i++) {
@@ -54,6 +52,12 @@ function App() {
       newState.push(matrix[i]);
     }
     setMatrix(newState);
+  }
+
+  function notify(message, guess) {
+    setShow(true);
+    setMessage(message);
+    setGuess(guess);
   }
 
   function play(number) {
@@ -96,12 +100,6 @@ function App() {
     }
   }
 
-  function notify(message, guess) {
-    setShow(true);
-    setMessage(message);
-    setGuess(guess);
-  }
-
   function newGame(currentDifficulty) {
     Sudoku.newGame(currentDifficulty);
     setToFind(currentDifficulty);
@@ -111,7 +109,6 @@ function App() {
     setShow(false);
   }
 
-  
   function changeDifficulty(difficulty) {
     setCurrentDifficulty(difficulty);
     newGame(difficulty);
@@ -128,7 +125,6 @@ function App() {
     }
   };
 
-  
   return (
     <div className="App">
       <header className="App-header">
@@ -160,9 +156,9 @@ function App() {
         </div>
       </header>
       <Container>
-        <Row className="p-5">
-          <Col className="pr-5 mr-5">
-          <Row
+        <Row className=" p-5 ">
+          <Col className="  pr-5 mr-5 ">
+            <Row
               style={{
                 cursor: "pointer",
                 border: "1px solid cornflowerblue ",
@@ -193,7 +189,14 @@ function App() {
                         );
                       })}
                     </Row>
-                    <Container>
+                  </Col>
+                );
+              })}
+            </Row>
+          </Col>
+          {/* <Col md={1}></Col> */}
+          <Col md={{ span: 5, offset: 2 }}>
+            <Container>
               <Button
                 className="form-control mb-3"
                 onClick={() => newGame(currentDifficulty)}
@@ -218,12 +221,11 @@ function App() {
                 })}
               </Row>
             </Container>
-                  </Col>
-                );
-              })}
-            </Row>
           </Col>
         </Row>
+        <Alert className="mt-5" show={show} variant={guess}>
+          <Alert.Heading>{message}</Alert.Heading>
+        </Alert>
       </Container>
     </div>
   );

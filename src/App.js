@@ -154,7 +154,30 @@ function App() {
               xs={1}
               md={9}
             >
-             
+              {matrix.map((row, i) => {
+                console.log(row, i);
+                return (
+                  <Col key={i} className={i % 3 === 0 ? "matrixCol" : ""}>
+                    <Row md={9} className="">
+                      {row.map((column, j) => {
+                        return (
+                          <Col
+                            onClick={() => onMatrixClick(i, j)}
+                            key={j}
+                            className={
+                              cords[0] === i && cords[1] === j
+                                ? "clicked matrixRow "
+                                : "default matrixRow"
+                            }
+                          >
+                            {column}
+                          </Col>
+                        );
+                      })}
+                    </Row>
+                  </Col>
+                );
+              })}
             </Row>
           </Col>
         </Row>

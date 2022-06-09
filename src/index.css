@@ -33,3 +33,12 @@ code {
   text-shadow: #61dafb;
   flex-direction: column;
 }
+
+.items {
+  display: grid;
+  grid-template: 30; 
+  padding: 50px;
+  border: 2px solid lightgrey;
+  text-shadow: #61dafb;
+  background-color: w
+}

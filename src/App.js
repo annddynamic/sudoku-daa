@@ -125,6 +125,7 @@ function App() {
     }
   };
 
+
   return (
     <div className="App">
       <header className="App-header">
@@ -169,7 +170,6 @@ function App() {
               md={9}
             >
               {matrix.map((row, i) => {
-                console.log(row, i);
                 return (
                   <Col key={i} className={i % 3 === 0 ? "matrixCol" : ""}>
                     <Row md={9} className="">

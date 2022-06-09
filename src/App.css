@@ -87,3 +87,10 @@
   color: white;
   transform: scale(1.1); 
 }
+
+.all-boxes{
+  background-color: #61dafb;
+  border-top: 2px solid black;
+  font-weight: bold;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}

@@ -126,6 +126,8 @@ function App() {
             </Dropdown.Menu>
           </Dropdown>
         </div>
+        <p>lorem20</p>
+        <p>lorem20</p>
       </header>
     </div>
   );

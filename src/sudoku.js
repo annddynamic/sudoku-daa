@@ -114,6 +114,34 @@ const Sudoku = (function () {
         return false
     }
 
+  function isValidPlacement(board, number, row, column){
+        return  !isNumberInBox(board,number,row,column)&&
+                !isNumberInRow(board,number,row) &&
+                !isNumberInColumn(board,number,column)
+    }
+
+    function solveBoard(board) {
+        for (let row = 0; row < GRIDSIZE; row++) {
+            for (let column = 0; column < GRIDSIZE; column++) {
+                if (board[row][column] == 0) {
+                    for (let numberToTry = 1; numberToTry <= GRIDSIZE; numberToTry++) {
+                        if (isValidPlacement(board, numberToTry, row, column)) {
+                            board[row][column] = numberToTry;
+                            if (solveBoard(board)) {
+                                return true;
+                            }
+                            else {
+                                board[row][column] = 0;
+                            }
+                        }
+                    }
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
 })();
 
 export default Sudoku;

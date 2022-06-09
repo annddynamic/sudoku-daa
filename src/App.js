@@ -55,6 +55,47 @@ function App() {
     }
     setMatrix(newState);
   }
+
+  function play(number) {
+    //check lives
+    if (lives !== 0) {
+      // check if cordinates are set
+      if (cords.length > 0) {
+        //check if cell is valid to insert number
+        if (matrix[cords[0]][cords[1]] === null) {
+          //check if correct
+          if (board[cords[0]][cords[1]] === number) {
+            // notify user guess correct
+            notify("Correct!", "success");
+
+            appendToMatrix(cords[0], cords[1], number);
+            setToFind((prevState) => prevState - 1);
+            if (toFind === 1) {
+              // Game is won, notify user
+              notify("Congratulations, you solved the sudoku!", "success");
+            }
+          } else {
+            // tell user wrong answer
+            notify("Wrong!", "danger");
+            if (lives > 1) {
+              setLives((prevState) => prevState - 1);
+            } else {
+              // game over, notify user
+              setLives((prevState) => prevState - 1);
+              notify("You lost! Try again!", "danger");
+            }
+          }
+        } else {
+          // notify user to select box
+          notify("Select an empty box in order to play!", "danger");
+        }
+      } else {
+        // notify user to select empty box
+        notify("Select an empty box in order to play!", "danger");
+      }
+    }
+  }
+
   
   return (
     <div className="App">

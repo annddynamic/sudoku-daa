@@ -110,6 +110,24 @@ function App() {
     setLives(5);
     setShow(false);
   }
+
+  
+  function changeDifficulty(difficulty) {
+    setCurrentDifficulty(difficulty);
+    newGame(difficulty);
+    setShow(false);
+  }
+
+  const onMatrixClick = (i, j) => {
+    if (matrix[i][j] !== null) {
+      notify("This field is set!", "danger");
+      setCords([]);
+    } else {
+      notify("", "");
+      setCords([i, j]);
+    }
+  };
+
   
   return (
     <div className="App">

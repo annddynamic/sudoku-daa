@@ -193,6 +193,31 @@ function App() {
                         );
                       })}
                     </Row>
+                    <Container>
+              <Button
+                className="form-control mb-3"
+                onClick={() => newGame(currentDifficulty)}
+              >
+                New Game
+              </Button>
+
+              <Row
+                sm={9}
+                // className="box"
+              >
+                {numbers.map((number) => {
+                  return (
+                    <Col
+                      onClick={() => play(number)}
+                      key={number}
+                      className="moves"
+                    >
+                      <p className="boxText">{number}</p>
+                    </Col>
+                  );
+                })}
+              </Row>
+            </Container>
                   </Col>
                 );
               })}

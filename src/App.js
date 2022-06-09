@@ -34,6 +34,12 @@ function App() {
     const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     const [cords, setCords] = useState([]);
     const [toFind, setToFind] = useState();
+    const [lives, setLives] = useState();
+    const [show, setShow] = useState(false);
+    const [message, setMessage] = useState("");
+    const [guess, setGuess] = useState("danger");
+    const [currentDifficulty, setCurrentDifficulty] = useState();
+  
   
   return (
     <div className="App">

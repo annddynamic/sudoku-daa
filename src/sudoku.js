@@ -35,6 +35,20 @@ const Sudoku = (function () {
         return board
     }
 
+    function getUnsolvedBoard(){
+        return unSolvedBoard
+    }
+   
+    function randomNumberGenerator(n) {
+        return  Math.floor(Math.random()*n+1)
+    }
+
+    function copySolvedBoard(board){
+        for (var i = 0; i < board.length; i++){
+            unSolvedBoard[i] = board[i].slice();
+        }
+    }
+
     function unUsedInBox(rowStart, colStart, num, board){
         for(let i =0; i<3; i++){
             for(let j =0; j<3; j++){

@@ -25,3 +25,11 @@ code {
   transform: matrix();
   flex-direction: column;
 }
+
+.drop-style{
+  cursor: pointer;
+  padding: 50px;
+  border: 2px solid lightgrey;
+  text-shadow: #61dafb;
+  flex-direction: column;
+}

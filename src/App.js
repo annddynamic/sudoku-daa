@@ -28,6 +28,12 @@ function App() {
       setLives(5);
       setShow(false);
     }, []);
+
+    const [matrix, setMatrix] = useState([]);
+    const [board, setBoard] = useState([]);
+    const [numbers, setNumbers] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    const [cords, setCords] = useState([]);
+    const [toFind, setToFind] = useState();
   
   return (
     <div className="App">

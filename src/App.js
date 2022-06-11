@@ -38,6 +38,28 @@ function App() {
   const [message, setMessage] = useState("");
   const [guess, setGuess] = useState("danger");
   const [currentDifficulty, setCurrentDifficulty] = useState();
+  const [difficulties, setDifficulties] = useState([
+    {
+      level: "Beginner",
+      toFind: 30,
+    },
+    {
+      level: "Rookie",
+      toFind: 45,
+    },
+    {
+      level: "Medium",
+      toFind: 50,
+    },
+    {
+      level: "Hard",
+      toFind: 58,
+    },
+    {
+      level: "Legendary",
+      toFind: 65,
+    },
+  ]);
 
   function appendToMatrix(row, column, number) {
     let newState = [];
@@ -136,35 +158,29 @@ function App() {
               Change difficulty
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item onClick={() => changeDifficulty(30)}>
-                Beginner
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => changeDifficulty(45)}>
-                Rookie
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => changeDifficulty(50)}>
-                Medium
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => changeDifficulty(58)}>
-                Hard
-              </Dropdown.Item>
-              <Dropdown.Item onClick={() => changeDifficulty(65)}>
-                Legendary
-              </Dropdown.Item>
+              {difficulties.map((difficulty) => {
+                return (
+                  <Dropdown.Item
+                    onClick={() => changeDifficulty(difficulty.toFind)}
+                  >
+                    {difficulty.level}
+                  </Dropdown.Item>
+                );
+              })}
             </Dropdown.Menu>
           </Dropdown>
         </div>
       </header>
-      <Container> 
+      <Container>
         <Row className=" p-5 ">
-          <Col  md={{span:5}} className="pr-5">
+          <Col md={{ span: 5 }} className="pr-5">
             <Row
-             style={{
-              cursor: "pointer",
-              border: "1px solid cornflowerblue ",
-              borderLeft: "2px solid black",
-              borderBottom: "2px solid black",
-            }}
+              style={{
+                cursor: "pointer",
+                border: "1px solid cornflowerblue ",
+                borderLeft: "2px solid black",
+                borderBottom: "2px solid black",
+              }}
               xs={1}
               md={9}
             >
@@ -173,7 +189,6 @@ function App() {
                   <Col key={i} className={i % 3 === 0 ? "matrixCol" : ""}>
                     <Row md={9}>
                       {row.map((column, j) => {
-                        console.log(column, j);
                         return (
                           <Col
                             onClick={() => onMatrixClick(i, j)}
@@ -205,7 +220,6 @@ function App() {
 
               <Row
                 md={3}
-                // className="box"
               >
                 {numbers.map((number) => {
                   return (
